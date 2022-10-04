@@ -8,6 +8,8 @@ public class KinoxpApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KinoxpApplication.class, args);
+
+		// Ömer kan ikke programmere >:(
 	}
 
 }
