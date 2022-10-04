@@ -10,6 +10,7 @@ public class KinoxpApplication {
 		SpringApplication.run(KinoxpApplication.class, args);
 
 		// Ömer kan ikke programmere >:(
+		// Det kan Lukas heller ikke :)))
 	}
 
 }
