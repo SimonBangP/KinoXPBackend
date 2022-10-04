@@ -11,6 +11,6 @@ public class KinoxpApplication {
 
 		// Ömer kan ikke programmere >:(
 		// Det kan Lukas heller ikke :)))
+		// simon duer ikke til noget
 	}
-
 }
