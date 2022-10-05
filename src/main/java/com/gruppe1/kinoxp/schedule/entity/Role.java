@@ -1,4 +1,4 @@
-package kinoXP.schedule.entity;
+package com.gruppe1.kinoxp.schedule.entity;
 
 public enum Role {
     PICCOLO,

@@ -1,4 +1,4 @@
-package kinoXP.schedule.entity;
+package com.gruppe1.kinoxp.schedule.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +27,7 @@ public class Employee {
     String address;
     String city;
     Role role;
+
     @OneToMany(mappedBy = "name", fetch = FetchType.LAZY)
     List<WorkTask> workTasks = new ArrayList<>();
 }

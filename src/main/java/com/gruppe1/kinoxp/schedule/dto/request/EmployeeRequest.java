@@ -1,4 +1,4 @@
-package kinoXP.schedule.dto.request;
+package com.gruppe1.kinoxp.schedule.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

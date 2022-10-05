@@ -1,4 +1,4 @@
-package kinoXP.schedule.api;
+package com.gruppe1.kinoxp.schedule.api;
 
 import org.springframework.stereotype.Controller;
 
