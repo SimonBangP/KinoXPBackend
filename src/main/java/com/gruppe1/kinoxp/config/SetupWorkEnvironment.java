@@ -25,16 +25,11 @@ public class SetupWorkEnvironment implements ApplicationRunner {
     @Autowired
     TaskNameService taskNameService;
 
-    @Autowired
-    WorkTaskService workTaskService;
-
-    @Autowired
-    WorkDayService workDayService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Employee testEmployee = new Employee("Sebastian", "Rasmussen", "test@mail.dk", 29870788, "Christiansvej 11", "2600 Glostrup", Role.BOSS);
-        employeeService.add(testEmployee);
+        Employee testEmployee = new Employee("Sebastian", "Rasmussen", "test@mail.dk", "29870788", "Christiansvej 11", "2600 Glostrup", Role.BOSS);
+        //employeeService.add(testEmployee);
 
         //Employee testEmployee = employeeService.getByFirstAndLastName("Sebastian", "Rasmussen");
 

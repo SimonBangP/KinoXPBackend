@@ -25,7 +25,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private String address;
     private String city;
     private Role role;
@@ -34,7 +34,7 @@ public class Employee {
     private List<WorkDay> workDays = new ArrayList<>();
 
     // Vi kan ikke have @AllArgsConstructor når id er autogenereret
-    public Employee(String firstName, String lastName, String email, int phoneNumber, String address, String city, Role role) {
+    public Employee(String firstName, String lastName, String email, String phoneNumber, String address, String city, Role role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
