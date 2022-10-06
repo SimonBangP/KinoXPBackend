@@ -25,7 +25,7 @@ public class EmployeeResponse {
     private String firstName;
     private String lastName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private String address;
     private String city;
     private Role role;
@@ -34,7 +34,7 @@ public class EmployeeResponse {
     private List<WorkDay> workDays = new ArrayList<>();
 
 
-    public EmployeeResponse(int id, String firstName, String lastName, String email, int phoneNumber, String address, String city, Role role, List<WorkDay> workDays) {
+    public EmployeeResponse(int id, String firstName, String lastName, String email, String phoneNumber, String address, String city, Role role, List<WorkDay> workDays) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
