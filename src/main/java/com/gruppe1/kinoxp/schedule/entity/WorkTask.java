@@ -1,5 +1,6 @@
 package com.gruppe1.kinoxp.schedule.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +33,7 @@ public class WorkTask {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "work_date", insertable = false, updatable = false)
+    @JsonBackReference
     private WorkDay workDay;
 
 

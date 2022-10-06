@@ -1,5 +1,6 @@
 package com.gruppe1.kinoxp.schedule.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class WorkDay implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
+    @JsonBackReference
     private Employee employee;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

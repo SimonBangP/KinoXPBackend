@@ -43,6 +43,4 @@ public class Employee {
         this.city = city;
         this.role = role;
     }
-
-
 }
