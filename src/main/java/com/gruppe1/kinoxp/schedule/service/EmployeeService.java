@@ -1,11 +1,14 @@
 package com.gruppe1.kinoxp.schedule.service;
 
+import com.gruppe1.kinoxp.schedule.dto.request.EmployeeResponse;
 import com.gruppe1.kinoxp.schedule.entity.Employee;
 import com.gruppe1.kinoxp.schedule.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -42,5 +45,10 @@ public class EmployeeService {
         }
     }
 
+    public List<EmployeeResponse> getEmployees(){
+        List<Employee> employees = employeeRepository.findAll();
 
+        List<EmployeeResponse> response = employees.stream().map(employee -> new EmployeeResponse(employee)).collect(Collectors.toList());
+     return response;
+    }
 }
