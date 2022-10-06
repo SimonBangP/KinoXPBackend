@@ -51,4 +51,12 @@ public class EmployeeService {
         List<EmployeeResponse> response = employees.stream().map(employee -> new EmployeeResponse(employee)).collect(Collectors.toList());
      return response;
     }
+
+    public List<Employee> findEmployeeById(int id){
+        return employeeRepository.findEmployeeById(id);
+    }
+
+    public void deleteEmployeeById(int id){
+        employeeRepository.deleteEmployeeById(id);
+    }
 }
