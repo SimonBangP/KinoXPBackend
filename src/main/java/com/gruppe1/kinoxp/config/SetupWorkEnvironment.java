@@ -1,6 +1,7 @@
 package com.gruppe1.kinoxp.config;
 
 import com.gruppe1.kinoxp.schedule.entity.*;
+import com.gruppe1.kinoxp.schedule.repository.TaskNameRepository;
 import com.gruppe1.kinoxp.schedule.repository.WorkTaskRepository;
 import com.gruppe1.kinoxp.schedule.service.EmployeeService;
 import com.gruppe1.kinoxp.schedule.service.TaskNameService;
@@ -24,6 +25,8 @@ public class SetupWorkEnvironment implements ApplicationRunner {
 
     @Autowired
     TaskNameService taskNameService;
+    @Autowired
+    TaskNameRepository taskNameRepository;
 
 
     @Override
@@ -56,6 +59,22 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         System.out.println(workDays.size());
         System.out.println(workDays.get(0).getWorkTasks().size());
         System.out.println(workDays.get(0).getWorkTasks().get(0).getWorkDay() == null);
+
+        TaskName slikSalg = TaskName.builder()
+                .taskName("Sliksalg")
+                .build();
+
+        TaskName rengøring = TaskName.builder()
+                .taskName("Rengøring")
+                .build();
+
+        TaskName oprydning = TaskName.builder()
+                .taskName("Oprydning")
+                .build();
+
+        taskNameRepository.save(slikSalg);
+        taskNameRepository.save(rengøring);
+        taskNameRepository.save(oprydning);
 
     }
 }
