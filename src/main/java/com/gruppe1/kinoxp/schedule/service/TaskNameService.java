@@ -57,4 +57,9 @@ public class TaskNameService {
     public void deleteTaskNameById(int id){
         taskNameRepository.deleteById(id);
     }
+
+    public void deleteTaskNameByTaskName (String taskname){
+        taskNameRepository.deleteByTaskName(taskname);
+
+    }
 }

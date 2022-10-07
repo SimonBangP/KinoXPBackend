@@ -34,8 +34,14 @@ public class WorkTaskController {
     }
 
 
-    @DeleteMapping("/taskname{id}")
-    public void deleteTaskName(@PathVariable int id){
+    @DeleteMapping("/taskname/{id}")
+    public void deleteTaskNamebyId(@PathVariable int id){
         taskNameService.deleteTaskNameById(id);
     }
+
+    /*@DeleteMapping("/taskname/{taskname}")
+    public void deleteTaskNameByTaskName (@PathVariable String taskName){
+        taskNameService.deleteTaskNameByTaskName(taskName);
+
+    }*/
 }
