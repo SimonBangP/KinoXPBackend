@@ -9,6 +9,6 @@ public interface TaskNameRepository extends JpaRepository<TaskName, Integer> {
 
     Optional<TaskName> findByTaskName(String taskName);
 
-    long deleteByTaskName (String taskName);
+    void deleteByTaskName(String taskName);
 
 }
