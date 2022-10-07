@@ -1,6 +1,6 @@
 package com.gruppe1.kinoxp.schedule.service;
 
-import com.gruppe1.kinoxp.schedule.dto.request.EmployeeResponse;
+import com.gruppe1.kinoxp.schedule.dto.response.EmployeeResponse;
 import com.gruppe1.kinoxp.schedule.entity.Employee;
 import com.gruppe1.kinoxp.schedule.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

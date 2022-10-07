@@ -1,14 +1,13 @@
 package com.gruppe1.kinoxp.schedule.api;
 
 
-import com.gruppe1.kinoxp.schedule.dto.request.TaskNameResponse;
+import com.gruppe1.kinoxp.schedule.dto.request.TaskNameRequest;
+import com.gruppe1.kinoxp.schedule.dto.response.TaskNameResponse;
 import com.gruppe1.kinoxp.schedule.service.TaskNameService;
 import com.gruppe1.kinoxp.schedule.service.WorkDayService;
 import com.gruppe1.kinoxp.schedule.service.WorkTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,8 +26,11 @@ public class WorkTaskController {
     @GetMapping("/taskname")
     public List<TaskNameResponse> getTaskNames (){
         return taskNameService.getTaskName();
+    }
 
-
+    @PostMapping
+    public TaskNameResponse addTaskName(@RequestBody TaskNameRequest body){
+        return taskNameService.addTaskName(body);
     }
 
 }
