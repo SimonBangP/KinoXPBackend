@@ -1,8 +1,7 @@
 package com.gruppe1.kinoxp.schedule.service;
 
-import com.gruppe1.kinoxp.schedule.dto.request.EmployeeResponse;
-import com.gruppe1.kinoxp.schedule.dto.request.TaskNameResponse;
-import com.gruppe1.kinoxp.schedule.entity.Employee;
+import com.gruppe1.kinoxp.schedule.dto.request.TaskNameRequest;
+import com.gruppe1.kinoxp.schedule.dto.response.TaskNameResponse;
 import com.gruppe1.kinoxp.schedule.entity.TaskName;
 import com.gruppe1.kinoxp.schedule.repository.TaskNameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +48,9 @@ public class TaskNameService {
 
     }
 
+    public TaskNameResponse addTaskName(TaskNameRequest taskNameRequest){
+                TaskName newTaskName = TaskNameRequest.getTaskNameEntity(taskNameRequest);
+        newTaskName = taskNameRepository.save(newTaskName);
+        return new TaskNameResponse(newTaskName);
+    }
 }

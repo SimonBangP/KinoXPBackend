@@ -1,4 +1,4 @@
-package com.gruppe1.kinoxp.schedule.dto.request;
+package com.gruppe1.kinoxp.schedule.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.gruppe1.kinoxp.schedule.entity.Employee;
