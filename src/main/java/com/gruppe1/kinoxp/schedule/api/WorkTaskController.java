@@ -28,9 +28,14 @@ public class WorkTaskController {
         return taskNameService.getTaskName();
     }
 
-    @PostMapping
+    @PostMapping("/taskname")
     public TaskNameResponse addTaskName(@RequestBody TaskNameRequest body){
         return taskNameService.addTaskName(body);
     }
 
+
+    @DeleteMapping("/taskname{id}")
+    public void deleteTaskName(@PathVariable int id){
+        taskNameService.deleteTaskNameById(id);
+    }
 }

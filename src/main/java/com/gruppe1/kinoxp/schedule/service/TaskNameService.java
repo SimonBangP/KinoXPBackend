@@ -53,4 +53,8 @@ public class TaskNameService {
         newTaskName = taskNameRepository.save(newTaskName);
         return new TaskNameResponse(newTaskName);
     }
+
+    public void deleteTaskNameById(int id){
+        taskNameRepository.deleteById(id);
+    }
 }
