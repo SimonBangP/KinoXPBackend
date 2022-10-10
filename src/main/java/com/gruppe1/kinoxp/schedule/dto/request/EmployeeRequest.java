@@ -1,6 +1,7 @@
 package com.gruppe1.kinoxp.schedule.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.gruppe1.kinoxp.schedule.entity.Role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,9 +16,12 @@ import javax.persistence.Id;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
+    private String address;
+    private String city;
+    private Role role;
 
 }

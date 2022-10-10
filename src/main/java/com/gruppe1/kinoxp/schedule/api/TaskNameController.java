@@ -20,16 +20,11 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping ("api/v1/worktasks")
-public class WorkTaskController {
+@RequestMapping ("api/v1/tasknames")
+public class TaskNameController {
 
     @Autowired
     TaskNameService taskNameService;
-    @Autowired
-    WorkDayService workDayService;
-    @Autowired
-    WorkTaskService workTaskService;
-
 
     @Operation(summary = "Gets all available task names", responses = {@ApiResponse(responseCode = "200")})
     @GetMapping("/taskname")

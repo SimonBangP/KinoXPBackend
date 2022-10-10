@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ class EmployeeRepositoryTest {
 
         List<WorkTask> workTasks = new ArrayList<>();
 
-        WorkTask task = new WorkTask(Period.of(0, 0, 1), taskName, "Stå for billetsalg for sal 4");
+        WorkTask task = new WorkTask(taskName, "Stå for billetsalg for sal 4", LocalTime.of(10, 10, 10), LocalTime.of(12,12,12));
 
         workTasks.add(task);
 

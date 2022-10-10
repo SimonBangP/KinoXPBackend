@@ -13,6 +13,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,12 +48,12 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         //workDayService.add(workDay);
         testEmployee.getWorkDays().add(workDay);
 
-        WorkTask task = new WorkTask(Period.of(0, 0, 1), taskName, "Stå for billetsalg for sal 4");
+        WorkTask task = new WorkTask(taskName, "Stå for billetsalg for sal 4", LocalTime.of(10, 10, 10), LocalTime.of(12,12,12));
         workTasks.add(task);
         testEmployee.getWorkDays().get(0).setWorkTasks(workTasks);
 
         employeeService.add(testEmployee);
-        testEmployee = employeeService.getByFirstAndLastName("Sebastian", "Rasmussen");
+        testEmployee = new Employee(employeeService.getByFirstAndLastName("Sebastian", "Rasmussen"));
 
         List<WorkDay> workDays = testEmployee.getWorkDays();
 
