@@ -46,15 +46,15 @@ public class EmployeeResponse {
         this.workDays = workDays;
     }
 
-   public EmployeeResponse(Employee employees) {
-        this.id = employees.getId();
-        this.firstName = employees.getFirstName();
-        this.lastName = employees.getLastName();
-        this.email = employees.getEmail();
-        this.phoneNumber = employees.getPhoneNumber();
-        this.address = employees.getAddress();
-        this.city = employees.getCity();
-        this.role = employees.getRole();
-        this.workDays = employees.getWorkDays();
+   public EmployeeResponse(Employee employee) {
+        this.id = employee.getId();
+        this.firstName = employee.getFirstName();
+        this.lastName = employee.getLastName();
+        this.email = employee.getEmail();
+        this.phoneNumber = employee.getPhoneNumber();
+        this.address = employee.getAddress();
+        this.city = employee.getCity();
+        this.role = employee.getRole();
+        this.workDays = employee.getWorkDays();
    }
 }

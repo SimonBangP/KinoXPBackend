@@ -1,11 +1,10 @@
 package com.gruppe1.kinoxp.schedule.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.AllArgsConstructor;
+import com.gruppe1.kinoxp.schedule.dto.request.worktask.WorkTaskRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.repository.cdi.Eager;
 
 import java.time.*;
 
@@ -15,15 +14,14 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Eager
 public class WorkTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private Period taskPeriod;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
     private String description;
 
@@ -32,14 +30,28 @@ public class WorkTask {
     private TaskName name;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "work_date", insertable = false, updatable = false)
+    @JoinColumn(name = "work_date_id", insertable = false, updatable = false)
     @JsonBackReference
     private WorkDay workDay;
 
 
-    public WorkTask(Period taskPeriod, TaskName name, String description) {
-        this.taskPeriod = taskPeriod;
+    public WorkTask(TaskName name, String description, LocalTime startTime, LocalTime endTime) {
         this.name = name;
         this.description = description;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
+
+    public WorkTask(WorkTaskRequest request, TaskName taskName) {
+        this.startTime = request.getStartTime();
+        this.endTime = request.getEndTime();
+        this.name = taskName;
+        this.description = request.getDescription();
+    }
+
+    public Duration getTaskDuration() {
+        return Duration.between(this.startTime, this.endTime);
+    }
+
+
 }

@@ -34,11 +34,11 @@ public class EmployeeService {
         }
     }
 
-    public Employee getByFirstAndLastName(String firstName, String lastName) {
+    public EmployeeResponse getByFirstAndLastName(String firstName, String lastName) {
         Optional<Employee> optionalEmployee = employeeRepository.findByFirstNameAndLastName(firstName, lastName);
 
         if (optionalEmployee.isPresent()) {
-            return optionalEmployee.get();
+            return new EmployeeResponse(optionalEmployee.get());
         }
         else {
             return null;
@@ -49,7 +49,7 @@ public class EmployeeService {
         List<Employee> employees = employeeRepository.findAll();
 
         List<EmployeeResponse> response = employees.stream().map(employee -> new EmployeeResponse(employee)).collect(Collectors.toList());
-     return response;
+        return response;
     }
 
     public List<Employee> findEmployeeById(int id){
