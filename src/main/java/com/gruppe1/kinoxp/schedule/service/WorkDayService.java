@@ -1,6 +1,7 @@
 package com.gruppe1.kinoxp.schedule.service;
 
 import com.gruppe1.kinoxp.schedule.dto.response.EmployeeResponse;
+import com.gruppe1.kinoxp.schedule.dto.response.EmployeeWorkdayResponse;
 import com.gruppe1.kinoxp.schedule.dto.response.WorkDayResponse;
 import com.gruppe1.kinoxp.schedule.entity.Employee;
 import com.gruppe1.kinoxp.schedule.entity.WorkDay;
@@ -28,10 +29,10 @@ public class WorkDayService {
         workDayRepository.save(workDay);
     }
 
-    public List<WorkDayResponse> findByDate(LocalDate date) {
+    public List<EmployeeWorkdayResponse> findByDate(LocalDate date) {
         List<WorkDay> workDays = workDayRepository.findByWorkDate(date);
 
-        return workDays.stream().map(workday -> new WorkDayResponse(workday)).collect(Collectors.toList());
+        return workDays.stream().map(workday -> new EmployeeWorkdayResponse(workday)).collect(Collectors.toList());
 
     }
 

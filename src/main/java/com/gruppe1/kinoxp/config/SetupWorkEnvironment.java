@@ -33,19 +33,16 @@ public class SetupWorkEnvironment implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Employee testEmployee = new Employee("Sebastian", "Rasmussen", "test@mail.dk", "29870788", "Christiansvej 11", "2600 Glostrup", Role.BOSS);
-        //employeeService.add(testEmployee);
+        employeeService.add(testEmployee);
 
-        //Employee testEmployee = employeeService.getByFirstAndLastName("Sebastian", "Rasmussen");
 
         TaskName taskName = new TaskName("Billet salg");
         taskNameService.add(taskName);
-        //TaskName taskName = taskNameService.getByName("Billet salg");
 
         List<WorkTask> workTasks = new ArrayList<>();
-        //workTaskService.addRange(workTasks);
+
 
         WorkDay workDay = new WorkDay(LocalDate.now(), testEmployee, workTasks);
-        //workDayService.add(workDay);
         testEmployee.getWorkDays().add(workDay);
 
         WorkTask task = new WorkTask(taskName, "Stå for billetsalg for sal 4", LocalTime.of(10, 10, 10), LocalTime.of(12,12,12));

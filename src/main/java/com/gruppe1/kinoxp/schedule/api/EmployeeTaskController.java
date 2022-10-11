@@ -3,6 +3,7 @@ package com.gruppe1.kinoxp.schedule.api;
 import com.gruppe1.kinoxp.schedule.dto.request.WorkDayRequest;
 import com.gruppe1.kinoxp.schedule.dto.request.worktask.WorkTaskRemoveRequest;
 import com.gruppe1.kinoxp.schedule.dto.request.worktask.WorkTaskRequest;
+import com.gruppe1.kinoxp.schedule.dto.response.EmployeeWorkdayResponse;
 import com.gruppe1.kinoxp.schedule.dto.response.WorkDayResponse;
 import com.gruppe1.kinoxp.schedule.entity.Employee;
 import com.gruppe1.kinoxp.schedule.entity.TaskName;
@@ -38,7 +39,7 @@ public class EmployeeTaskController {
 
     @Operation(summary = "Gets all assigned work tasks for current date", responses = {@ApiResponse(responseCode = "200")})
     @GetMapping
-    public ResponseEntity<List<WorkDayResponse>> getAllWorkAssignmentForCurrentDate() {
+    public ResponseEntity<List<EmployeeWorkdayResponse>> getAllWorkAssignmentForCurrentDate() {
 
         return new ResponseEntity<>(workDayService.findByDate(LocalDate.now()), HttpStatus.OK);
     }
