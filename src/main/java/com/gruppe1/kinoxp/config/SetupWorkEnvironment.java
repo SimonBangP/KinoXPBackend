@@ -32,10 +32,10 @@ public class SetupWorkEnvironment implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Employee testEmployee = new Employee("Sebastian", "Rasmussen", "test@mail.dk", "29870788", "Bånderøvsvej 11", "2600 Salgelse", Role.PICCOLINE);
-        Employee testEmployee2 = new Employee("Ömer", "Mert", "test2@mail.dk", "29840788", "Ömersvej 1", "8000 Aarhus", Role.BOSS);
-        Employee testEmployee3 = new Employee("Simon", "Bang", "test3@mail.dk", "29875788", "Simonsvej 11", "2600 Glostrup", Role.PICCOLINE);
-        Employee testEmployee4 = new Employee("Lukas", "Nielsen", "test4@mail.dk", "29870789", "Lukassvej 11", "1000 ??", Role.PICCOLINE);
+        Employee testEmployee = new Employee("Sebastian", "Rasmussen", "test@mail.dk", "29870788", "Bånderøvsvej 11", "2600 Salgelse", Role.Piccoline);
+        Employee testEmployee2 = new Employee("Ömer", "Mert", "test2@mail.dk", "29840788", "Ömersvej 1", "8000 Aarhus", Role.Boss);
+        Employee testEmployee3 = new Employee("Simon", "Bang", "test3@mail.dk", "29875788", "Simonsvej 11", "2600 Glostrup", Role.Piccoline);
+        Employee testEmployee4 = new Employee("Lukas", "Nielsen", "test4@mail.dk", "29870789", "Lukassvej 11", "1000 ??", Role.Piccoline);
         employeeService.add(testEmployee);
         employeeService.add(testEmployee2);
         employeeService.add(testEmployee3);

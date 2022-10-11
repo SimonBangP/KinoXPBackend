@@ -37,7 +37,7 @@ public class EmployeeTaskController {
     @Autowired
     TaskNameService taskNameService;
 
-    @Operation(summary = "Gets all assigned work tasks for current date", responses = {@ApiResponse(responseCode = "200")})
+     @Operation(summary = "Gets all assigned work tasks for current date", responses = {@ApiResponse(responseCode = "200")})
     @GetMapping
     public ResponseEntity<List<EmployeeWorkdayResponse>> getAllWorkAssignmentForCurrentDate() {
 
