@@ -40,7 +40,7 @@ public class EmployeeTaskController {
     @GetMapping
     public ResponseEntity<List<WorkDayResponse>> getAllWorkAssignmentForCurrentDate() {
 
-        return new ResponseEntity<>(workDayService.findByDate(LocalDate.now()), HttpStatus.OK);
+         return new ResponseEntity<>(workDayService.findByDate(LocalDate.now()), HttpStatus.OK);
     }
 
     @Operation(summary = "Gets all workdays from employee by full name", responses = {@ApiResponse(responseCode = "200"), @ApiResponse(responseCode = "404", content = @Content())})
