@@ -30,7 +30,7 @@ class EmployeeRepositoryTest {
 
     @BeforeEach
     void setUpBeforeEach(){
-        Employee testEmployee = new Employee("Sebastian", "Rasmussen", "test@mail.dk", "29870788", "Christiansvej 11", "2600 Glostrup", Role.PICCOLINE);
+        Employee testEmployee = new Employee("Sebastian", "Rasmussen", "test@mail.dk", "29870788", "Christiansvej 11", "2600 Glostrup", Role.Piccoline);
 
         TaskName taskName = new TaskName("Billet salg");
         taskNameRepository.save(taskName);
@@ -51,7 +51,7 @@ class EmployeeRepositoryTest {
 
     @Test
     public void createEmpolyee(){
-        Employee testEmployee = new Employee("Ömer", "Rasmussen", "test@mail.dk", "29870788", "Christiansvej 11", "2600 Glostrup", Role.BOSS);
+        Employee testEmployee = new Employee("Ömer", "Rasmussen", "test@mail.dk", "29870788", "Christiansvej 11", "2600 Glostrup", Role.Boss);
         employeeRepository.save(testEmployee);
 
         assertEquals(2, employeeRepository.count());
