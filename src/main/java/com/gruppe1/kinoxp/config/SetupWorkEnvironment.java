@@ -65,7 +65,7 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         TaskName billetSalg = new TaskName("Billet salg");
         taskNameService.add(billetSalg);
 
-        WorkTask task = new WorkTask(billetSalg, "Stå for billetsalg for sal 4", LocalTime.of(10, 10, 10), LocalTime.of(12,12,12));
+        WorkTask task = new WorkTask(billetSalg, "Stå for billetsalg for sal 4", LocalTime.of(10, 0, 0), LocalTime.of(12,30,12));
         workTasks.add(task);
         testEmployee.getWorkDays().get(0).setWorkTasks(workTasks);
 
@@ -73,7 +73,7 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         TaskName checkop = new TaskName("Check op");
         taskNameService.add(checkop);
 
-        WorkTask task2 = new WorkTask(checkop, "Check op på medarbejderne og giv feedback", LocalTime.of(10, 10, 10), LocalTime.of(12,12,12));
+        WorkTask task2 = new WorkTask(checkop, "Check op på medarbejderne og giv feedback", LocalTime.of(12, 0, 0), LocalTime.of(14,0,0));
         workTasks2.add(task2);
         testEmployee2.getWorkDays().get(0).setWorkTasks(workTasks2);
 
@@ -81,7 +81,7 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         TaskName popcorn = new TaskName("Lav popcorn");
         taskNameService.add(popcorn);
 
-        WorkTask task3 = new WorkTask(popcorn, "Smid popcorn ud hvis det er for gammelt, og lav ny hvis nødvendigt", LocalTime.of(10, 10, 10), LocalTime.of(12,12,12));
+        WorkTask task3 = new WorkTask(popcorn, "Smid popcorn ud hvis det er for gammelt, og lav ny hvis nødvendigt", LocalTime.of(8, 0, 0), LocalTime.of(10,30,0));
         workTasks3.add(task3);
         testEmployee3.getWorkDays().get(0).setWorkTasks(workTasks3);
 
@@ -89,7 +89,7 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         TaskName toilet = new TaskName("Rengør Toilet");
         taskNameService.add(toilet);
 
-        WorkTask task4 = new WorkTask(toilet, "Rengør toilettet grundigt", LocalTime.of(10, 10, 10), LocalTime.of(12,12,12));
+        WorkTask task4 = new WorkTask(toilet, "Rengør toilettet grundigt", LocalTime.of(14, 0, 0), LocalTime.of(15,45,0));
         workTasks4.add(task4);
         testEmployee4.getWorkDays().get(0).setWorkTasks(workTasks4);
 
