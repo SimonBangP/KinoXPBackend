@@ -12,6 +12,7 @@ import com.gruppe1.kinoxp.schedule.entity.WorkTask;
 import com.gruppe1.kinoxp.schedule.service.EmployeeService;
 import com.gruppe1.kinoxp.schedule.service.TaskNameService;
 import com.gruppe1.kinoxp.schedule.service.WorkDayService;
+import com.gruppe1.kinoxp.schedule.service.WorkTaskService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -20,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.TransactionScoped;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -30,6 +32,9 @@ public class EmployeeTaskController {
 
     @Autowired
     WorkDayService workDayService;
+
+    @Autowired
+    WorkTaskService workTaskService;
 
     @Autowired
     EmployeeService employeeService;
@@ -91,12 +96,14 @@ public class EmployeeTaskController {
         Employee foundEmployee = getEmployeeByFullName(request.getWorkDayRequest().getEmployeeFullName());
 
         if (foundEmployee == null) {
+            System.out.println("Could not find employee");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
         TaskName taskName = taskNameService.getByName(request.getTaskName());
 
         if (taskName == null) {
+            System.out.println("Could not find taskName");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -109,6 +116,28 @@ public class EmployeeTaskController {
 
         employeeService.add(foundEmployee);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @Operation(summary = "Edits specified task with new information", responses = {@ApiResponse(responseCode = "200"), @ApiResponse(responseCode = "404")})
+    @PostMapping("/tasks/{id}")
+    public ResponseEntity<Void> editTask(@PathVariable int id, @RequestBody WorkTaskRequest request) {
+
+        TaskName taskName = taskNameService.getByName(request.getTaskName());
+
+        if (taskName == null) {
+            System.out.println("Could not find taskName");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        WorkTask workTask = new WorkTask(workTaskService.getById(id), taskName);
+        workTask.setDescription(request.getDescription());
+        workTask.setStartTime(request.getStartTime());
+        workTask.setEndTime(request.getEndTime());
+
+        workTaskService.add(workTask);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
     @Operation(summary = "Remove task from day from employee", responses = {@ApiResponse(responseCode = "200"), @ApiResponse(responseCode = "404")})

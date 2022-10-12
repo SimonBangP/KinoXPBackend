@@ -28,6 +28,9 @@ public class WorkTaskResponse {
 
     private String taskName;
 
+    @JsonBackReference
+    private WorkDay workDay;
+
     public WorkTaskResponse(WorkTask workTask) {
         this.id = workTask.getId();;
         this.startTime = workTask.getStartTime();
@@ -35,5 +38,6 @@ public class WorkTaskResponse {
         this.duration = workTask.getTaskDuration();
         this.description = workTask.getDescription();
         this.taskName = workTask.getName().getTaskName();
+        this.workDay = workTask.getWorkDay();
     }
 }
