@@ -1,6 +1,7 @@
 package com.gruppe1.kinoxp.config;
 
 import com.gruppe1.kinoxp.schedule.entity.*;
+import com.gruppe1.kinoxp.schedule.repository.HallRepository;
 import com.gruppe1.kinoxp.schedule.repository.MovieRepository;
 import com.gruppe1.kinoxp.schedule.repository.TaskNameRepository;
 import com.gruppe1.kinoxp.schedule.repository.WorkTaskRepository;
@@ -32,6 +33,9 @@ public class SetupWorkEnvironment implements ApplicationRunner {
 
     @Autowired
     MovieRepository movieRepository;
+
+    @Autowired
+    HallRepository hallRepository;
 
 
     @Override
@@ -121,9 +125,14 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         taskNameRepository.save(popcorn);
         taskNameRepository.save(billetSalg);
 
-        Movie harrypotter = new Movie("Harry Potter", "tom", 2.4, Genre.Adventure);
-        movieRepository.save(harrypotter);
+        List<Movie> hall1Movies = new ArrayList<>();
+        Hall hall1 = new Hall(1, 50, HallSize.Small, hall1Movies);
+
+        Movie harrypotter = new Movie("Harry Potter", "tom", 2, 35, Genre.Adventure, LocalTime.of(14, 0, 0), hall1);
+        hall1Movies.add(harrypotter);
 
 
+        //movieRepository.save(harrypotter); lader programmet ikke køre, derfor udkommenteret
+        hallRepository.save(hall1);
     }
 }
