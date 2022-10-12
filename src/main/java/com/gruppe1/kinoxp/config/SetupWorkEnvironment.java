@@ -1,6 +1,7 @@
 package com.gruppe1.kinoxp.config;
 
 import com.gruppe1.kinoxp.schedule.entity.*;
+import com.gruppe1.kinoxp.schedule.repository.MovieRepository;
 import com.gruppe1.kinoxp.schedule.repository.TaskNameRepository;
 import com.gruppe1.kinoxp.schedule.repository.WorkTaskRepository;
 import com.gruppe1.kinoxp.schedule.service.EmployeeService;
@@ -28,6 +29,9 @@ public class SetupWorkEnvironment implements ApplicationRunner {
     TaskNameService taskNameService;
     @Autowired
     TaskNameRepository taskNameRepository;
+
+    @Autowired
+    MovieRepository movieRepository;
 
 
     @Override
@@ -116,5 +120,10 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         taskNameRepository.save(checkop);
         taskNameRepository.save(popcorn);
         taskNameRepository.save(billetSalg);
+
+        Movie harrypotter = new Movie("Harry Potter", "tom", 2.4, Genre.Adventure);
+        movieRepository.save(harrypotter);
+
+
     }
 }
