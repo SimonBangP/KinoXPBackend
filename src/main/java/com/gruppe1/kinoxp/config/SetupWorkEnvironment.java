@@ -15,6 +15,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
 import java.util.ArrayList;
@@ -128,11 +129,33 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         List<Movie> hall1Movies = new ArrayList<>();
         Hall hall1 = new Hall(1, 50, HallSize.Small, hall1Movies);
 
-        Movie harrypotter = new Movie("Harry Potter", "tom", 2, 35, Genre.Adventure, LocalTime.of(14, 0, 0), hall1);
+        List<Movie> hall2Movies = new ArrayList<>();
+        Hall hall2 = new Hall(2, 50, HallSize.Small, hall2Movies);
+
+        List<Movie> hall3Movies = new ArrayList<>();
+        Hall hall3 = new Hall(3, 100, HallSize.Medium, hall3Movies);
+
+        List<Movie> hall4Movies = new ArrayList<>();
+        Hall hall4 = new Hall(4, 150, HallSize.Big, hall4Movies);
+
+
+        Movie harrypotter = new Movie("Harry Potter", "tom", 2, 35, Genre.Adventure, LocalDateTime.now(), hall1);
         hall1Movies.add(harrypotter);
+
+        Movie harrypotter2 = new Movie("Harry Potter 2", "tom", 3, 35, Genre.Adventure, LocalDateTime.now(), hall2);
+        hall2Movies.add(harrypotter2);
+
+        Movie harrypotter3 = new Movie("Harry Potter 3", "tom", 1, 35, Genre.Adventure, LocalDateTime.now(), hall3);
+        hall3Movies.add(harrypotter3);
+
+        Movie harrypotter4 = new Movie("Harry Potter 4", "tom", 2, 55, Genre.Adventure, LocalDateTime.now(), hall4);
+        hall4Movies.add(harrypotter4);
 
 
         //movieRepository.save(harrypotter); lader programmet ikke køre, derfor udkommenteret
         hallRepository.save(hall1);
+        hallRepository.save(hall4);
+        hallRepository.save(hall2);
+        hallRepository.save(hall3);
     }
 }

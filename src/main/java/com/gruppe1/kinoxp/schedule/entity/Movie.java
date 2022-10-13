@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 
@@ -29,9 +30,9 @@ public class Movie {
 
     Genre genres;
 
-    private LocalTime startTime;
+    private LocalDateTime startTime;
 
-    private LocalTime endTime;
+    private LocalDateTime endTime;
 
     @ManyToOne
     @JoinColumn(name = "hallNumber")
@@ -39,7 +40,7 @@ public class Movie {
     Hall hall;
 
 
-    public Movie(String name, String description, int hours, int minutes, Genre genres, LocalTime startTime, Hall hall) {
+    public Movie(String name, String description, int hours, int minutes, Genre genres, LocalDateTime startTime, Hall hall) {
         this.name = name;
         this.description = description;
         this.hours = hours;

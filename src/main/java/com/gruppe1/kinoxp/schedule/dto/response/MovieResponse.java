@@ -6,6 +6,7 @@ import com.gruppe1.kinoxp.schedule.entity.Movie;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Getter
@@ -24,9 +25,9 @@ public class MovieResponse {
 
     Genre genres;
 
-    private LocalTime startTime;
+    private LocalDateTime startTime;
 
-    private LocalTime endTime;
+    private LocalDateTime endTime;
 
     Hall hall;
 
