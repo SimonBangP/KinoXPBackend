@@ -30,9 +30,15 @@ public class Movie {
 
     Genre genres;
 
-    private LocalDateTime startTime;
+    private LocalDateTime movieStartTime;
 
-    private LocalDateTime endTime;
+    private LocalDateTime movieEndTime;
+
+    LocalDateTime advertisementStartTime;
+
+    LocalDateTime cleaning;
+
+
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "hallNumber")
@@ -40,14 +46,16 @@ public class Movie {
     Hall hall;
 
 
-    public Movie(String name, String description, int hours, int minutes, Genre genres, LocalDateTime startTime, Hall hall) {
+    public Movie(String name, String description, int hours, int minutes, Genre genres, LocalDateTime advertisementStartTime, Hall hall) {
         this.name = name;
         this.description = description;
         this.hours = hours;
         this.minutes = minutes;
         this.genres = genres;
-        this.startTime = startTime;
-        this.endTime = startTime.plusHours(hours).plusMinutes(minutes);
+        this.advertisementStartTime = advertisementStartTime;
+        this.movieStartTime = advertisementStartTime.plusMinutes(20);
+        this.movieEndTime = movieStartTime.plusHours(hours).plusMinutes(minutes);
+        this.cleaning = movieEndTime.plusMinutes(30);
         this.hall = hall;
     }
 }

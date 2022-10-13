@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
-    List<Movie> findByStartTimeBetween(LocalDateTime startTimeStart, LocalDateTime startTimeEnd);
+    List<Movie> findByAdvertisementStartTimeBetween(LocalDateTime startTimeStart, LocalDateTime startTimeEnd);
 
 
 
