@@ -6,13 +6,12 @@ import com.gruppe1.kinoxp.schedule.service.MovieService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RequestMapping("api/v1/movies")
@@ -25,7 +24,14 @@ public class MovieController {
 
     @Operation(summary = "Gets a list of all movies", responses = {@ApiResponse(responseCode = "200")})
     @GetMapping
-    public ResponseEntity<List<MovieResponse>> getmovies(){
+    public ResponseEntity<List<MovieResponse>> getMovies(){
         return new ResponseEntity<>(movieService.getMovies(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{date}")
+    public ResponseEntity<List<MovieResponse>> getMoviesByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date){
+
+        return new ResponseEntity<>(movieService.getAllOnDate(date), HttpStatus.OK);
+
     }
 }

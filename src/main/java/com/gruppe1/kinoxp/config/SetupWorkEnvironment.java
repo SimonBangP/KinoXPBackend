@@ -148,7 +148,7 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         Movie harrypotter3 = new Movie("Harry Potter 3", "tom", 1, 35, Genre.Adventure, LocalDateTime.now(), hall3);
         hall3Movies.add(harrypotter3);
 
-        Movie harrypotter4 = new Movie("Harry Potter 4", "tom", 2, 55, Genre.Adventure, LocalDateTime.now(), hall4);
+        Movie harrypotter4 = new Movie("Harry Potter 4", "tom", 2, 55, Genre.Adventure, LocalDateTime.now().plusHours(24), hall4);
         hall4Movies.add(harrypotter4);
 
 
