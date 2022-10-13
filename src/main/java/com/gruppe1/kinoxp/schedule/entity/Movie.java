@@ -34,7 +34,7 @@ public class Movie {
 
     private LocalDateTime endTime;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "hallNumber")
     @JsonBackReference
     Hall hall;

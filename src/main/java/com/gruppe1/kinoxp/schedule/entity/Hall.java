@@ -24,7 +24,6 @@ public class Hall {
 
     HallSize hallSize;
 
-
     @OneToMany(mappedBy = "hall", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     List<Movie> movies = new ArrayList<>();
 }
