@@ -152,7 +152,7 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         hall4Movies.add(harrypotter4);
 
 
-        //movieRepository.save(harrypotter); lader programmet ikke køre, derfor udkommenteret
+        movieRepository.save(harrypotter);
         hallRepository.save(hall1);
         hallRepository.save(hall4);
         hallRepository.save(hall2);

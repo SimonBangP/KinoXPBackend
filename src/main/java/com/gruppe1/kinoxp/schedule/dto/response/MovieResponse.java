@@ -25,21 +25,26 @@ public class MovieResponse {
 
     Genre genres;
 
-    private LocalDateTime startTime;
+    private LocalDateTime movieStartTime;
 
-    private LocalDateTime endTime;
+    private LocalDateTime movieEndTime;
+
+    LocalDateTime advertisementStartTime;
+
+    LocalDateTime cleaning;
 
     Hall hall;
 
     public MovieResponse(Movie movie){
-        this.id = movie.getId();
         this.name = movie.getName();
         this.description = movie.getDescription();
         this.hours = movie.getHours();
         this.minutes = movie.getMinutes();
         this.genres = movie.getGenres();
-        this.startTime = movie.getStartTime();
-        this.endTime = movie.getEndTime();
+        this.advertisementStartTime = movie.getAdvertisementStartTime();
+        this.movieStartTime = advertisementStartTime.plusMinutes(20);
+        this.movieEndTime = movieStartTime.plusHours(hours).plusMinutes(minutes);
+        this.cleaning = movieEndTime.plusMinutes(30);
         this.hall = movie.getHall();
 
     }

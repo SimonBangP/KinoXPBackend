@@ -29,7 +29,7 @@ public class MovieService {
 
     public List<MovieResponse> getAllOnDate(LocalDate date) {
 
-        List<Movie> responses = movieRepository.findByStartTimeBetween(date.atStartOfDay(), date.atStartOfDay().plusHours(23).plusMinutes(59));
+        List<Movie> responses = movieRepository.findByAdvertisementStartTimeBetween(date.atStartOfDay(), date.atStartOfDay().plusHours(23).plusMinutes(59));
 
         return responses.stream().map(movie -> new MovieResponse(movie)).collect(Collectors.toList());
     }
