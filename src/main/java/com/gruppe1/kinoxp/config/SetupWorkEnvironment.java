@@ -139,16 +139,16 @@ public class SetupWorkEnvironment implements ApplicationRunner {
         Hall hall4 = new Hall(4, 150, HallSize.Big, hall4Movies);
 
 
-        Movie harrypotter = new Movie("Harry Potter", "tom", 2, 35, Genre.Adventure, LocalDateTime.now(), hall1);
+        Movie harrypotter = new Movie("Harry Potter", "", 2, 35, Genre.Adventure, LocalDateTime.now(), hall1);
         hall1Movies.add(harrypotter);
 
-        Movie harrypotter2 = new Movie("Harry Potter 2", "tom", 3, 35, Genre.Adventure, LocalDateTime.now(), hall2);
+        Movie harrypotter2 = new Movie("Harry Potter 2", "", 3, 35, Genre.Adventure, LocalDateTime.now(), hall2);
         hall2Movies.add(harrypotter2);
 
-        Movie harrypotter3 = new Movie("Harry Potter 3", "tom", 1, 35, Genre.Adventure, LocalDateTime.now(), hall3);
+        Movie harrypotter3 = new Movie("Harry Potter 3", "", 1, 35, Genre.Adventure, LocalDateTime.now(), hall3);
         hall3Movies.add(harrypotter3);
 
-        Movie harrypotter4 = new Movie("Harry Potter 4", "tom", 2, 55, Genre.Adventure, LocalDateTime.now().plusHours(24), hall4);
+        Movie harrypotter4 = new Movie("Harry Potter 4", "", 2, 55, Genre.Adventure, LocalDateTime.now().plusHours(24), hall4);
         hall4Movies.add(harrypotter4);
 
 

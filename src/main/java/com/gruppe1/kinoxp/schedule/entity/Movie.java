@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 
 @Entity
@@ -48,7 +49,6 @@ public class Movie {
 
     public Movie(String name, String description, int hours, int minutes, Genre genres, LocalDateTime advertisementStartTime, Hall hall) {
         this.name = name;
-        this.description = description;
         this.hours = hours;
         this.minutes = minutes;
         this.genres = genres;
@@ -57,5 +57,14 @@ public class Movie {
         this.movieEndTime = movieStartTime.plusHours(hours).plusMinutes(minutes);
         this.cleaning = movieEndTime.plusMinutes(30);
         this.hall = hall;
+        if(description!="") {
+            this.description = (description
+                    + "\n" + "Reklamer: " + advertisementStartTime.format(DateTimeFormatter.ofPattern("HH:mm")) + "-" + movieStartTime.format(DateTimeFormatter.ofPattern("HH:mm"))
+                    + "\n" + "Rengøring: " + movieEndTime.format(DateTimeFormatter.ofPattern("HH:mm")) + "-" + cleaning.format(DateTimeFormatter.ofPattern("HH:mm")));
+        }else {
+            this.description = (
+                    "Reklamer: " + advertisementStartTime.format(DateTimeFormatter.ofPattern("HH:mm")) + "-" + movieStartTime.format(DateTimeFormatter.ofPattern("HH:mm"))
+                    + "\n" + "Rengøring: " + movieEndTime.format(DateTimeFormatter.ofPattern("HH:mm")) + "-" + cleaning.format(DateTimeFormatter.ofPattern("HH:mm")));
+        }
     }
 }
