@@ -37,7 +37,7 @@ public class MovieResponse {
 
     public MovieResponse(Movie movie){
         this.name = movie.getName();
-        this.description = movie.getDescription();
+        this.description = (movie.getDescription());
         this.hours = movie.getHours();
         this.minutes = movie.getMinutes();
         this.genres = movie.getGenres();
