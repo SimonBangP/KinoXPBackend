@@ -30,6 +30,7 @@ jobs:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
           retention-days: 1
+         #Test
 
   deploy:
     runs-on: ubuntu-latest
